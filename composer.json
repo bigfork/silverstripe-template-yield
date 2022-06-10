@@ -1,0 +1,24 @@
+{
+    "name": "bigfork/silverstripe-template-yield",
+    "description": "Adds yield functionality to Silverstripe templates",
+    "type": "silverstripe-vendormodule",
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Loz Calver",
+            "email": "lozcalver@bigfork.co.uk"
+        }
+    ],
+    "require": {
+        "php": "^7.4 || ^8.0",
+        "silverstripe/assets": "^1",
+        "silverstripe/framework": "^4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Bigfork\\SilverstripeTemplateYield\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

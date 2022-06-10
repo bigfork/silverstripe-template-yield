@@ -1,0 +1,16 @@
+---
+Name: template-yield
+After:
+  - corefieldtypes
+---
+SilverStripe\Core\Injector\Injector:
+  HTMLFragment:
+    class: 'Bigfork\SilverstripeTemplateYield\DBHTMLFragment'
+  SilverStripe\View\SSTemplateParser:
+    properties:
+      closedBlocks:
+        section: 'Bigfork\SilverstripeTemplateYield\BlockProvider::sectionClosedTemplate'
+        yield: 'Bigfork\SilverstripeTemplateYield\BlockProvider::yieldClosedTemplate'
+      openBlocks:
+        section: 'Bigfork\SilverstripeTemplateYield\BlockProvider::sectionOpenTemplate'
+        yield: 'Bigfork\SilverstripeTemplateYield\BlockProvider::yieldOpenTemplate'
