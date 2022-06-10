@@ -8,7 +8,7 @@ class DBHTMLFragment extends DBHTMLText
 {
     public function forTemplate(): string
     {
-        $result = parent::forTemplate();
+        $result = parent::forTemplate() ?? '';
         return BlockProvider::yieldIntoString($result);
     }
 }
