@@ -48,7 +48,7 @@ class BlockProvider
                 $content = str_replace('$$FINAL', 'XML_val', $res['Arguments'][1]['php']);
             }
             $fallbackCode = <<<PHP
-\Bigfork\SilverstripeTemplateYield\BlockProvider::store('{$identifier}', {$content});
+\Bigfork\SilverstripeTemplateYield\BlockProvider::storeFallbackContent('{$identifier}', {$content});
 PHP;
         }
 
