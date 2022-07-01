@@ -2,8 +2,8 @@
 
 Adds support for `<% section %>` and `<% yield %>` tags to Silverstripe.
 
-⚠️ this is a proof of concept built by hooking into a few different places in core to work around missing extension
-hooks. See the [limitations](#limitations) section for more info.
+⚠️ this is a proof of concept built by using HTTP middleware to perform string replacements in order to work around
+missing extension hooks. See the [limitations](#limitations) section for more info.
 
 ## Usage examples
 
@@ -66,9 +66,7 @@ As above, you can offer a fallback for inline tags too:
 
 Due to there not yet being suitable hooks in place in Silverstripe core, this has the following limitations:
 
-- If there are multiple renders performed in a single request, rendered sections with the same name may leak between
-them. You can work around this by calling `BlockProvider::reset()` after retrieving the rendered HTML string
-- This has to [hook into rendering](https://github.com/silverstripe/silverstripe-framework/blob/1c85d151a68ddc860b24e6dd4cf1aaa02da619c1/src/View/SSViewer.php#L697-L702)
-by creating a `DBHTMLFragment` class (the default implementation uses `DBHTMLText` with shortcode parsing disabled).
-If you have a custom `DBHTMLText` or `DBHTMLFragment` class, you will likely need to call `BlockProvider::yieldIntoString()` yourself
+- This only works for templates that are returned via an HTTP request, as it relies on HTTP middleware to inject the
+yielded content. If you need to use this for other content (e.g. emails or server-side rendering) you will need to call
+`BlockProvider::yieldIntoString()` yourself
 - While nested sections/yields appear to work, these haven’t been thoroughly tested

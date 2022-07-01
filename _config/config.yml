@@ -1,11 +1,13 @@
 ---
 Name: template-yield
 After:
-  - corefieldtypes
+  - requestprocessors
 ---
 SilverStripe\Core\Injector\Injector:
-  HTMLFragment:
-    class: 'Bigfork\SilverstripeTemplateYield\DBHTMLFragment'
+  SilverStripe\Control\Director:
+    properties:
+      Middlewares:
+        YieldHTTPMiddleware: '%$Bigfork\SilverstripeTemplateYield\YieldHTTPMiddleware'
   SilverStripe\View\SSTemplateParser:
     properties:
       closedBlocks:
