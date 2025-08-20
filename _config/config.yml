@@ -8,7 +8,7 @@ SilverStripe\Core\Injector\Injector:
     properties:
       Middlewares:
         YieldHTTPMiddleware: '%$Bigfork\SilverstripeTemplateYield\YieldHTTPMiddleware'
-  SilverStripe\View\SSTemplateParser:
+  SilverStripe\TemplateEngine\SSTemplateParser:
     properties:
       closedBlocks:
         section: 'Bigfork\SilverstripeTemplateYield\BlockProvider::sectionClosedTemplate'
